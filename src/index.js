@@ -9,7 +9,7 @@ const userRouter = require('./routers/user');
 const providerRouter = require('./routers/provider');
 const { errorHandler } = require('./middleware/errors');
 const { connect } = require('./models/db');
-const { auth, requiresAuth } = require('express-openid-connect');
+const { auth } = require('express-openid-connect');
 
 console.log(process.env.MONGO_URL);
 
@@ -22,7 +22,7 @@ app.use(morgan('tiny'));
 
 app.use(
 	auth({
-		authRequired: false,
+		authRequired: true,
 		auth0Logout: true,
 		secret: process.env.AUTH0_SECRET,
 		baseURL: process.env.BASE_URL,
