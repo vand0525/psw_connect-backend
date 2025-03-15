@@ -1,6 +1,6 @@
 const { model, Schema} = require('mongoose');
 
-const jobSchema = new Schema(
+const userSchema = new Schema(
     {
         auth0Id: {
             type: String,
@@ -23,4 +23,4 @@ const jobSchema = new Schema(
     }
 )
 
-module.exports = model('Job', jobSchema);
+module.exports = model('User', userSchema);
